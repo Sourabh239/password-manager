@@ -1,76 +1,90 @@
-# password-manager
-mini project
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher_background"
-    tools:context=".MainActivity">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:Id="@+Id/signuptitle"
-        android:text="Sign up"
-        android:textSize="45dp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_margin="30dp" />
-
-    <EditText
-        android:id="@+id/signuptitle"
-        android:layout_width="match_parent"
-        android:layout_height="298dp"
-
-        android:layout_below="@id/signuptitle"
-        android:layout_marginStart=""
-        android:layout_marginTop=""
-        android:layout_marginEnd=""
-        android:layout_marginBottom=""
-        android:background="#30fffff"
-        android:hint="Username"
-        android:padding="20dp"
-        android:textColour="@color/White"
-        android:textColourHint="@color/White"
-        android:textSize="40dp"
-        android:textStyle="bold" />
-
-    <EditText
-
-        android:layout_width="match_parent"
-        android:layout_height="298dp"
-        android:id="@+id/email"
-        android:layout_below="@id/username"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginBottom="15dp"
-        android:background="#30fffff"
-        android:hint="Email"
-        android:padding="20dp"
-        android:textColour="@color/White"
-        android:textColourHint="@color/White"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        />
-    <EditText
-
-        android:layout_width="match_parent"
-        android:layout_height="298dp"
-        android:id="@+id/Password"
-        android:layout_below="@id/email"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="45dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="180dp"
-        android:background="#30fffff"
-        android:hint="Password"
-        android:padding="20dp"
-        android:textColour="@color/White"
-        android:textColourHint="@color/White"
-        android:textSize="40dp"
-        android:textStyle="bold"
-        />
-</RelativeLayout>
+include<stdio.h>
+int stack[100],choice,n,top,x,i;
+void push(void);
+void pop(void);
+void display(void);
+int main()
+{
+    top=-1;
+    printf("\n Enter the size of STACK[MAX=100]:");
+    scanf("%d",&n);
+    printf("\n\t STACK OPERATIONS USING ARRAY");
+    printf("\n\t--------------------------------");
+    printf("\n\t 1.PUSH\n\t 2.POP\n\t 3.DISPLAY\n\t 4.EXIT");
+    do
+    {
+        printf("\n Enter the Choice:");
+        scanf("%d",&choice);
+        switch(choice)
+        {
+            case 1:
+            {
+                push();
+                break;
+            }
+            case 2:
+            {
+                pop();
+                break;
+            }
+            case 3:
+            {
+                display();
+                break;
+            }
+            case 4:
+            {
+                printf("\n\t EXIT POINT ");
+                break;
+            }
+            default:
+            {
+                printf ("\n\t Please Enter a Valid Choice(1/2/3/4)");
+            }
+                
+        }
+    }
+    while(choice!=4);
+    return 0;
+}
+void push()
+{
+    if(top>=n-1)
+    {
+        printf("\n\tSTACK is over flow");
+        
+    }
+    else
+    {
+        printf(" Enter a value to be pushed:");
+        scanf("%d",&x);
+        top++;
+        stack[top]=x;
+    }
+}
+void pop()
+{
+    if(top<=-1)
+    {
+        printf("\n\t Stack is under flow");
+    }
+    else
+    {
+        printf("\n\t The popped elements is %d",stack[top]);
+        top--;
+    }
+}
+void display()
+{
+    if(top>=0)
+    {
+        printf("\n The elements in STACK \n");
+        for(i=top; i>=0; i--)
+            printf("\n%d",stack[i]);
+        printf("\n Press Next Choice");
+    }
+    else
+    {
+        printf("\n The STACK is empty");
+    }
+   
